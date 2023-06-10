@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <title>ハイアンドロー</title>
 
-    <title>high&low</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-    <main>
-        <section>
-            <h1>High&Low</h1>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  
 
-        </section>
+  
+  <body>
+      <h1>ハイアンドロー</h1>
+      <div id="game">
 
-        <button id="start">開始</button>
+        <button id="startButton">開始</button>
+        <div id="buttons">
+        <button id="highButton" class="hide">High</button>
+        <button id="lowButton" class="hide">Low</button>
+      
+      
+      </div>
+      <div id="result"></div>
+      <button id="retryButton" class="hide">もういちど</button>
+    </div>
 
-    </main>
+    <img id="LeftCard" src="card/card_back.png">
+    <img id="RightCard" src="card/card_back.png">
+    <h2 id="correct" class="hide">正解</h2>
+    <h3 id="incorrect" class="hide">不正解</h3>
 
-    <sctipt src="main.js"></sctipt>
+  <script src="main.js"></script>
 </body>
 </html>
