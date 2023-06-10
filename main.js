@@ -21,39 +21,47 @@ const retryButton = document.getElementById('retryButton');
 const correct = document.getElementById('correct');
 const incorrect = document.getElementById('incorrect');
 
-
+let tempLeftCard = 'initial'
 startButton.addEventListener('click', () => {
   // 左側のカードをランダムに表示
   const randSuit = Math.floor( Math.random() *4) ;  // Suitはトランプの柄
-  const randNumber = Math.floor( Math.random() *13) ;
-  const randCard = cards[randSuit][randNumber] ;
+  const leftRandNumber = Math.floor( Math.random() *13) ;
+  const randCard = cards[randSuit][leftRandNumber] ;
   const leftCard = document.getElementById("LeftCard");
   leftCard.src = "card/"+randCard
   //　ハイボタンとローボタンを表示
   highButton.classList.remove('hide');
   lowButton.classList.remove('hide');
-  //　開始ボタンを非表示
+  // 　開始ボタンを非表示
   startButton.classList.add('hide')
+  tempLeftCard = leftRandNumber; //tempLeftCardにleftRandCardで生成した値を入れる
 })
   
 highButton.addEventListener('click', () => {
   // 右側のカードをランダムに表示
   const randSuit = Math.floor( Math.random() *4) ;  // Suitはトランプの柄
-  const randNumber = Math.floor( Math.random() *13) ;
-  const randCard = cards[randSuit][randNumber] ;
+  const rightRandNumber = Math.floor( Math.random() *13) ;
+  const randCard = cards[randSuit][rightRandNumber] ;
   const rightCard = document.getElementById("RightCard");
   rightCard.src = "card/"+randCard
   highButton.classList.add('hide')
   lowButton.classList.add('hide')
 
-  correct.classList.remove('hide')
-  incorrect.classList.remove('hide')
   retryButton.classList.remove('hide')
+  if (tempLeftCard < rightRandNumber) {
+    correct.classList.remove('hide')
+  } else {
+    incorrect.classList.remove('hide')
 
+  if (tempLeftCard = rightRandNumber) {
+    incorrect.classList.remove('hide')
+  } 
 
+  }
 
+  
 
- })
+})
 
  lowButton.addEventListener('click', () => {
     // 右側のカードをランダムに表示
@@ -64,9 +72,18 @@ highButton.addEventListener('click', () => {
     rightCard.src = "card/"+randCard
     highButton.classList.add('hide')
     lowButton.classList.add('hide')
-    correct.classList.remove('hide')
-    incorrect.classList.remove('hide')
+
     retryButton.classList.remove('hide')
+    if (randNumber < tempLeftCard) {
+      correct.classList.remove('hide')
+    } else {
+      incorrect.classList.remove('hide')
+
+    if (tempLeftCard = randNumber) {
+        incorrect.classList.remove('hide')
+    } 
+
+    }
  })
 
  retryButton.addEventListener('click' ,function(){
